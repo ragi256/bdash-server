@@ -7,7 +7,7 @@ class QueriesController < ApplicationController
   end
 
   def create
-    query_params = params.permit(:title, :body, :result, charts: [])
+    query_params = params.permit(:uuid, :title, :body, :result, charts: [])
     @query = @current_user.queries.create!(query_params)
     render json: { url: query_url(@query) }
   end

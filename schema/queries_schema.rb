@@ -1,5 +1,6 @@
 create_table 'queries', force: :cascade do |t|
   t.integer  'user_id',                 null: false
+  t.string   'uuid',                    null: false
   t.string   'title',      default: '', null: false
   t.text     'body',       default: '', null: false
   t.text     'charts',     default: [], null: false, array: true
