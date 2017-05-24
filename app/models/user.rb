@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_one :auth_provider, class_name: 'UserAuthProvider'
+  has_many :queries
 
   def self.find_or_create_by_auth_hash!(auth_hash)
     uid = auth_hash[:uid]
@@ -13,11 +14,15 @@ class User < ApplicationRecord
       user.update!(name: name)
     else
       transaction do
-        user = create!(name: name)
+        user = create!(name: name, access_token: generate_token)
         user.create_auth_provider!(provider: provider_name, uid: uid)
       end
     end
 
     user
+  end
+
+  def self.generate_token
+    Digest::SHA1.hexdigest(SecureRandom.uuid)
   end
 end

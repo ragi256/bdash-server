@@ -1,1 +1,5 @@
 <p>Bdash Example Server</p>
+
+<% if @current_user %>
+<p>Your token is <q><%= @current_user.access_token %></q></p>
+<% end %>
