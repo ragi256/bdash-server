@@ -14,7 +14,7 @@ gem 'omniauth-google-oauth2'
 gem 'faml'
 
 group :development, :test do
-  gem 'pry'
+  gem 'pry-rails'
   gem 'pry-byebug'
   gem 'dotenv-rails'
 end
