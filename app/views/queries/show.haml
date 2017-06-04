@@ -9,4 +9,4 @@
         - row.each do |col|
           %td= col
   - @query.charts.each do |svg|
-    = raw svg
+    %img{ src: "data:image/svg+xml;base64,#{Base64.encode64(svg)}" }
