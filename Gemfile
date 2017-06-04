@@ -19,6 +19,10 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
+group :test do
+  gem 'rspec-rails'
+end
+
 group :development do
   gem 'web-console'
   gem 'listen'
