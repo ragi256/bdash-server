@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title BdashServer
+    = stylesheet_link_tag 'application'
+  %body
+    - if @current_user
+      Hello #{@current_user.name}
+    - else
+      %a{:href => "/auth/google"} Login with Google
+    = yield

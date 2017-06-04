@@ -1,0 +1,4 @@
+%ul
+  - @queries.each do |query|
+    %li= link_to query.title, query_path(query)
+    %li

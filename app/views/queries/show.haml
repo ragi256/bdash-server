@@ -1,0 +1,12 @@
+.QueryPage
+  %h1= @query.title
+  %p
+    uuid: #{@query.uuid}
+  %pre= @query.body
+  %table
+    - parse_tsv(@query.result).each do |row|
+      %tr
+        - row.each do |col|
+          %td= col
+  - @query.charts.each do |svg|
+    = raw svg
